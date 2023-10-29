@@ -1,0 +1,15 @@
+
+diffbot_controller:
+  type: "diff_drive_controller/DiffDriveController"
+  left_wheel: 'left_wheel2base_link'
+  right_wheel: 'right_wheel2base_link'
+  publish_rate: 50.0 # defaults to 50
+  pose_covariance_diagonal: [0.001, 0.001, 1000000.0, 1000000.0, 1000000.0, 1000.0]
+  twist_covariance_diagonal: [0.001, 0.001, 1000000.0, 1000000.0, 1000000.0, 1000.0]
+  cmd_vel_timeout: 0.2 # we test this separately, give plenty for the other tests
+  publish_cmd: true
+  publish_wheel_joint_controller_state: true
+  base_frame_id: base_footprint
+  left_wheel_radius_multiplier: 1.0
+  right_wheel_radius_multiplier: 1.0
+

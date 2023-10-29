@@ -1,0 +1,17 @@
+<launch>
+	<!-- 将 Urdf 文件的内容加载到参数服务器 -->
+	<param name="robot_description" command="$(find xacro)/xacro $(find mybot_description)/mecanumbot_description/urdf/mecanumbot_sim.urdf.xacro" />
+	<!-- 各关节配置文件 -->
+	<rosparam command="load" file="$(find mybot_description)/mecanumbot_description/cfg/ctrl.yaml" />
+	<!-- 启动 gazebo -->
+	<include file="$(find gazebo_ros)/launch/empty_world.launch" />
+	<!-- 关节以及机器人状态发布节点 -->
+	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+	<!-- 加载控制器 spawner -->
+	<node name="controller_manager" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="mecanum" args="left_rear_wheel_velocity_controller       right_rear_wheel_velocity_controller
+          left_front_wheel_velocity_controller      right_front_wheel_velocity_controller
+          joint_state_controller" />
+	<!-- 在 gazebo 中显示机器人模型 -->
+	<node pkg="gazebo_ros" type="spawn_model" name="model" args="-urdf -model mecanumbot -param robot_description" />
+</launch>

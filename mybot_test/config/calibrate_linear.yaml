@@ -1,0 +1,8 @@
+test_distance: 5.0
+speed: 0.2
+tolerance: 0.01
+odom_linear_scale_correction: 1.0
+start_test: true
+
+
+

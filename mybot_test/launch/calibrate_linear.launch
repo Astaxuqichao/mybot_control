@@ -1,0 +1,5 @@
+<launch>
+	<node pkg="mybot_test" type="calibrate_linear.py" name="calibrate_linear" output="screen">
+        <rosparam file="$(find mybot_test)/config/calibrate_linear.yaml" command="load" />
+	</node>
+</launch>

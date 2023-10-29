@@ -1,0 +1,31 @@
+<launch>
+
+  <arg name="robot_name" default="diffbot"/>
+
+  <!-- 启动 gazebo -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch" />
+
+  <!-- Load diffbot model -->
+  <param name="robot_description"
+         command="$(find xacro)/xacro $(find mybot_description)/diffbot_description/urdf/diffbot_sim.urdf.xacro" />
+
+  <!-- 关节以及机器人状态发布节点 -->
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+  <!-- Load controller config -->
+  <rosparam command="load" file="$(find mybot_launch)/config/diffbot/diffbot_controllers.yaml" />
+  <!-- Load hw config -->
+  <!-- <rosparam command="load" file="$(find mybot_launch)/config/diffbot/diffbot_hw.yaml" /> -->
+  <!-- Load sim config -->
+  <rosparam command="load" file="$(find mybot_launch)/config/diffbot/diffbot_sim_control.yaml" />
+  
+  <!-- Spawn controller -->
+  <node name="controller_spawner"
+            pkg="controller_manager" type="spawner" output="screen"
+            args="diffbot_controller" />
+
+  <!-- 在 gazebo 中显示机器人模型 -->
+  <node pkg="gazebo_ros" type="spawn_model" name="model" args="-urdf -model diffbot -param robot_description"  />
+    
+</launch>

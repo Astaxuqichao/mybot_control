@@ -1,0 +1,8 @@
+<!-- 组合小车底盘与摄像头 -->
+<robot name="diffbot" xmlns:xacro="http://wiki.ros.org/xacro">
+    <xacro:include filename="$(find mybot_description)/common_model/inertial.urdf.xacro" />
+    <xacro:include filename="$(find mybot_description)/diffbot_description/urdf/diffbot_base.urdf.xacro" />
+    <xacro:include filename="$(find mybot_description)/common_model/camera.urdf.xacro" />
+    <xacro:include filename="$(find mybot_description)/common_model/laser.urdf.xacro" />
+
+</robot>

@@ -1,0 +1,12 @@
+<!-- 组合小车底盘与摄像头 -->
+<robot name="mecanumbot_sim" xmlns:xacro="http://wiki.ros.org/xacro">
+    <xacro:include filename="$(find mybot_description)/mecanumbot_description/urdf/mecanumbot.urdf.xacro" />
+
+    <xacro:include filename="$(find mybot_description)/mecanumbot_description/urdf/plugin/gazebo_ros_control.urdf.xacro" />
+
+    
+    <!-- <xacro:include filename="$(find mybot_description)/model/sensor/sensors_laser.urdf.xacro" /> -->
+
+    <!-- <xacro:include filename="$(find mybot_description)/model/sensor/sensors_camera.urdf.xacro" /> -->
+
+</robot>

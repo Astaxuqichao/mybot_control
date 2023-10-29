@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package>
+  <name>mybot_control</name>
+  <version>0.0.0</version>
+  <description>The mybot control package</description>
+
+  <maintainer email="asta@todo.com">xuqc</maintainer>
+
+  <license>None</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <!-- rrbot model -->
+  <run_depend> mybot_controllers </run_depend>
+  <run_depend> mybot_description </run_depend>
+  <run_depend> mybot_hw </run_depend>
+  <run_depend> mybot_launch </run_depend>
+
+  <export>
+    <metapackage/>
+  </export>
+</package>

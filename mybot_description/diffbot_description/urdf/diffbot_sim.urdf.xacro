@@ -1,0 +1,13 @@
+<!-- 组合小车底盘与摄像头 -->
+<!-- 将运动关节使用gazebo_ros_control插件仿真 -->
+<robot name="diffbot_sim" xmlns:xacro="http://wiki.ros.org/xacro">
+    <xacro:include filename="$(find mybot_description)/diffbot_description/urdf/diffbot.urdf.xacro" />
+
+    <xacro:include filename="$(find mybot_description)/diffbot_description/urdf/plugin/gazebo_ros_control.urdf.xacro" />
+
+    
+    <!-- <xacro:include filename="$(find mybot_description)/model/sensor/sensors_laser.urdf.xacro" /> -->
+
+    <!-- <xacro:include filename="$(find mybot_description)/model/sensor/sensors_camera.urdf.xacro" /> -->
+
+</robot>

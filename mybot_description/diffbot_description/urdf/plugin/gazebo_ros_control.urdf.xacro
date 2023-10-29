@@ -1,0 +1,7 @@
+<robot name="gazebo_ros_control" xmlns:xacro="http://wiki.ros.org/xacro">
+	<!-- ros_control plugin -->
+	<gazebo>
+		<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+		</plugin>
+	</gazebo>
+</robot>

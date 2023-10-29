@@ -1,0 +1,7 @@
+test_angle: 3.1415926
+speed: 0.3
+tolerance: 1.0
+odom_angular_scale_correction: 1.0
+start_test: true
+
+

@@ -1,0 +1,10 @@
+
+# Settings for ros_control hardware interface
+hardware_interface:
+  loop_hz: 50 # hz
+  reduction: 1.0
+  joints:
+    - left_front_wheel2base_link
+    - left_rear_wheel2base_link
+    - right_rear_wheel2base_link
+    - right_front_wheel2base_link
