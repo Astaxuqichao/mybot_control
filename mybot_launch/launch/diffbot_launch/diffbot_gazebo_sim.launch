@@ -1,0 +1,12 @@
+<launch>
+
+  <!-- 启动 gazebo -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch" />
+
+  <!--load controller -->
+  <include file= "$(find mybot_launch)/launch/diffbot_launch/diffbot_sim_driver.launch.xml"/>
+
+  <!-- 在 gazebo 中启动机器人，仿真hw -->
+  <node pkg="gazebo_ros" type="spawn_model" name="model" args="-urdf -model diffbot -param robot_description"  />
+    
+</launch>

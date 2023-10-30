@@ -20,7 +20,7 @@
     <xacro:property name="base_footprint_radius" value="0.001" /> <!-- base_footprint 半径  -->
     <xacro:property name="base_link_radius" value="0.205" /> <!-- base_link 半径 -->
     <xacro:property name="base_link_height" value="0.2" /> <!-- base_link 长 -->
-    <xacro:property name="earth_space" value="0.14" /> <!-- 离地间距 -->
+    <xacro:property name="earth_space" value="0.04" /> <!-- 离地间距 -->
     <xacro:property name="base_link_m" value="5" /> <!-- 质量  -->
 
     <!-- 底盘 -->
@@ -91,32 +91,20 @@
       <joint name="${name}_wheel2base_link" type="continuous">
         <parent link="base_link" />
         <child link="${name}_wheel" />
-        <origin xyz="0 ${flag * (base_link_radius - wheel_length / 2)} ${-(earth_space + base_link_height / 2 - wheel_radius) }" />
+        <origin xyz="0 ${flag * (base_link_radius - wheel_length / 2)} ${-(earth_space + base_link_height / 2 - wheel_radius) - 0.0001 }" />
         <axis xyz="0 1 0" />
       </joint>
-
-        <!-- Transmission is important to link the joints and the controller -->
-      <transmission name="${name}_wheel2base_link_trans">
-          <type>transmission_interface/SimpleTransmission</type>
-          <joint name="${name}_wheel2base_link">
-                <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
-          </joint>
-          <actuator name="${name}_wheel2base_link_motor">
-                <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
-                <mechanicalReduction>30</mechanicalReduction>
-          </actuator>
-      </transmission>
 
       <gazebo reference="${name}_wheel">
         <material>Gazebo/Red</material>
       </gazebo>
-
     </xacro:macro>
+
     <xacro:add_wheels name="left" flag="1" />
     <xacro:add_wheels name="right" flag="-1" />
     <!-- 支撑轮 -->
     <!-- 支撑轮属性 -->
-    <xacro:property name="support_wheel_radius" value="0.07" /> <!-- 支撑轮半径 -->
+    <xacro:property name="support_wheel_radius" value="0.02" /> <!-- 支撑轮半径 -->
     <xacro:property name="support_wheel_m" value="0.3" /> <!-- 质量  -->
 
     <!-- 支撑轮宏 -->

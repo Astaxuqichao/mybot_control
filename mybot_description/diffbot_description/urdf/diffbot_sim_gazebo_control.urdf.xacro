@@ -5,9 +5,4 @@
 
     <xacro:include filename="$(find mybot_description)/diffbot_description/urdf/plugin/gazebo_diff_drive.urdf.xacro" />
 
-    
-    <!-- <xacro:include filename="$(find mybot_description)/model/sensor/sensors_laser.urdf.xacro" /> -->
-
-    <!-- <xacro:include filename="$(find mybot_description)/model/sensor/sensors_camera.urdf.xacro" /> -->
-
 </robot>

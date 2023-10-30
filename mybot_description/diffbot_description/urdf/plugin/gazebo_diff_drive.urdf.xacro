@@ -13,7 +13,7 @@
             <legacyMode>true</legacyMode>
             <leftJoint>left_wheel2base_link</leftJoint> <!-- 左轮 -->
             <rightJoint>right_wheel2base_link</rightJoint> <!-- 右轮 -->
-            <wheelSeparation>${base_link_radius * 2}</wheelSeparation> <!-- 车轮间距 -->
+            <wheelSeparation>${base_link_radius * 2 - wheel_length }</wheelSeparation> <!-- 车轮间距 -->
             <wheelDiameter>${wheel_radius * 2}</wheelDiameter> <!-- 车轮直径 -->
             <broadcastTF>1</broadcastTF>
             <wheelTorque>30</wheelTorque>

@@ -1,4 +1,28 @@
 <robot name="gazebo_ros_control" xmlns:xacro="http://wiki.ros.org/xacro">
+	<!-- Transmission is important to link the joints and the controller -->
+	<xacro:macro name="add_wheels_transmission" params="name">
+		<transmission name="${name}_wheel2base_link_trans">
+			<type>transmission_interface/SimpleTransmission</type>
+			<joint name="${name}_wheel2base_link">
+				<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+			</joint>
+			<actuator name="${name}_wheel2base_link_motor">
+				<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+				<mechanicalReduction>1</mechanicalReduction>
+			</actuator>
+		</transmission>
+
+		<gazebo reference="${name}_wheel">
+			<material>Gazebo/Red</material>
+		</gazebo>
+
+	</xacro:macro>
+	<xacro:add_wheels_transmission name="left_front"/>
+	<xacro:add_wheels_transmission name="right_front"/>
+	<xacro:add_wheels_transmission name="left_rear"/>
+	<xacro:add_wheels_transmission name="right_rear"/>
+
+
 	<!-- ros_control plugin -->
 	<gazebo>
 		<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">

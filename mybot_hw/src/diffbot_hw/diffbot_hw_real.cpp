@@ -4,7 +4,7 @@ namespace mybot_hw
 {
 
   DiffBOTHardwareInterface::DiffBOTHardwareInterface(ros::NodeHandle &nh)
-      : nh_(nh), reduction_(1.0)
+      : nh_(nh)
   {
     // Initialize shared memory and interfaces
     init();
@@ -12,9 +12,6 @@ namespace mybot_hw
     wheel_state_sub_ = nh_.subscribe<std_msgs::Float32MultiArray>(
         "wheel_state_encoder", 1, &DiffBOTHardwareInterface::wheelStateCB, this);
     wheel_cmd_pub_ = nh_.advertise<std_msgs::Float32MultiArray>("wheel_cmd_velocity", 1);
-    // get reduce
-    nh_.param("hardware_interface/reduction", reduction_, 1.0);
-    ROS_DEBUG_STREAM_NAMED("constructor", "reduction " << reduction_ << " hz");
 
     // Create the controller manager
     controller_manager_.reset(
@@ -46,7 +43,7 @@ namespace mybot_hw
     }
     num_joints_ = joint_names_.size();
 
-    last_interpolation_.resize(num_joints_);
+    wheel_encoder_state_.data.resize(num_joints_);
     // Resize vectors
     joint_position_.resize(num_joints_);
     joint_velocity_.resize(num_joints_);
@@ -108,13 +105,14 @@ namespace mybot_hw
     {
       // update position might add smoothing here later
       joint_position_[i] += wheel_encoder_state_.data[i];
-      // joint_velocity_[i] = wheel_v;
+      
     }
   }
 
   void DiffBOTHardwareInterface::write(ros::Duration elapsed_time)
   {
     std_msgs::Float32MultiArray wheel_cmd;
+    wheel_cmd.data.resize(num_joints_);
     // Send commands in different modes
     std::ostringstream os;
     // Move all the states to the commanded set points slowly
@@ -130,6 +128,11 @@ namespace mybot_hw
   void DiffBOTHardwareInterface::wheelStateCB(
       const std_msgs::Float32MultiArray::ConstPtr &msg)
   {
+    if (msg->data.size() != num_joints_)
+    {
+      ROS_INFO_STREAM("hardwarw input error");
+      return;
+    }
     wheel_encoder_state_ = *msg;
   }
 

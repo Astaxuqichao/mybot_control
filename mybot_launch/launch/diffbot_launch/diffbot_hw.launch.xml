@@ -1,0 +1,12 @@
+<launch>
+
+  <!-- Load controller config -->
+  <rosparam command="load" file="$(find mybot_launch)/config/diffbot/diffbot_hw.yaml" />
+
+  <!-- Start diffbot -->
+  <node name="diffbot" pkg="mybot_hw" type="diffbot_hw_real_node" output="screen">
+    <remap to="cmd_vel" from="diffbot_controller/cmd_vel" />
+    <remap to="odom" from="diffbot_controller/odom" />
+  </node>
+
+</launch>

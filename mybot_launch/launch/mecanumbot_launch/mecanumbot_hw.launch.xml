@@ -1,0 +1,12 @@
+<launch>
+
+  <!-- Load controller config -->
+  <rosparam command="load" file="$(find mybot_launch)/config/mecanumbot/mecanumbot_hw.yaml" />
+
+  <!-- Start mecanumbot -->
+  <node name="mecanumbot" pkg="mybot_hw" type="mecanumbot_hw_real_node" output="screen">
+    <remap to="cmd_vel" from="mecanumbot_controller/cmd_vel" />
+    <remap to="odom" from="mecanumbot_controller/odom" />
+  </node>
+
+</launch>

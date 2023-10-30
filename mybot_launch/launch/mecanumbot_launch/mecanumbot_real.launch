@@ -1,29 +1,9 @@
 <launch>
 
-  <arg name="robot_name" default="mecanumbot"/>
-  <!-- Load mecanumbot model -->
-  <param name="robot_description"
-         command="$(find xacro)/xacro $(find mybot_description)/mecanumbot_description/urdf/mecanumbot.urdf.xacro" />
+  <!--load driver -->
+  <include file= "$(find mybot_launch)/launch/mecanumbot_launch/mecanumbot_driver.launch.xml"/>
 
-  <!-- 关节以及机器人状态发布节点 -->
-  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
-  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
-
-  <!-- Load controller config -->
-  <rosparam command="load" file="$(find mybot_launch)/config/mecanumbot/mecanumbot_controllers.yaml" />
-  <!-- Load controller config -->
-  <rosparam command="load" file="$(find mybot_launch)/config/mecanumbot/mecanumbot_hw.yaml" />
-  
-    <!-- Spawn controller -->
-  <node name="controller_spawner"
-            pkg="controller_manager" type="spawner" output="screen"
-            args="mecanumbot_controller" />
-
-
-  <!-- Start mecanumbot -->
-  <node name="mecanumbot" pkg="mybot_hw" type="mecanumbot_hw_real_node" output="screen">
-    <remap to="cmd_vel" from="mecanumbot_controller/cmd_vel" />
-    <remap to="odom" from="mecanumbot_controller/odom" />
-  </node>
+  <!--load hw -->
+  <include file= "$(find mybot_launch)/launch/mecanumbot_launch/mecanumbot_hw.launch.xml"/>
 
 </launch>

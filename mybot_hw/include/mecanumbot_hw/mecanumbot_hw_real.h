@@ -37,7 +37,7 @@ public:
 
   ros::Time getTime() const { return ros::Time::now(); }
 
-  void wheelStateCB(const mecanum_msgs::Encoder::ConstPtr &msg);
+  void wheelStateCB(const std_msgs::Float32MultiArray::ConstPtr &msg);
 
 protected:
   ros::NodeHandle nh_;
