@@ -21,9 +21,9 @@
     <xacro:property name="base_link_length" value="0.56" /> <!-- base_link 长 -->
     <xacro:property name="base_link_width" value="0.36" /> <!-- base_link 宽 -->
     <xacro:property name="base_link_height" value="0.23" /> <!-- base_link 高 -->
-    <xacro:property name="wheel_offset" value="0.087" /> <!-- 轮偏置距离  -->
+    <xacro:property name="wheel_offset" value="0.02" /> <!-- 轮偏置距离  -->
     <xacro:property name="wheel_distance" value="0.44" /> <!-- 前后轮轴距  -->
-    <xacro:property name="earth_space" value="0.14" /> <!-- 离地间距 -->
+    <xacro:property name="earth_space" value="0.04" /> <!-- 离地间距 -->
     <xacro:property name="base_link_m" value="5" /> <!-- 质量  -->
 
     <!-- 底盘 -->
