@@ -4,8 +4,9 @@ There are ros_packages of mybot_control, include the following:
 1. mecanumbot controller
 2. diffbot hardware driver
 3. mecanumbot hardware driver
-4. launch file
-5. odom test scripts
+4. diffbot and mecanumbot description
+5. launch file
+6. odom test scripts
 
 **Those packages depend on ros-control and ros-controllers.**
 
