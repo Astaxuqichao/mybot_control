@@ -1,5 +1,5 @@
-#ifndef mybot_control__mybot_HARDWARE_INTERFACE_H
-#define mybot_control__mybot_HARDWARE_INTERFACE_H
+#ifndef MYBOT_CONTROL__MYBOT_HARDWARE_INTERFACE_H
+#define MYBOT_CONTROL__MYBOT_HARDWARE_INTERFACE_H
 
 #include <boost/scoped_ptr.hpp>
 #include <controller_manager/controller_manager.h>
