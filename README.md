@@ -25,7 +25,7 @@ There are ros_packages of mybot_control, include the following:
 
 ## Input & Output 
 
-_I use rosserial to contect the hardware and embedded, so I just need to manager input and output topic_  
+_I use rosserial to connect the hardware and embedded, so i just need to manager input and output topic_  
 _Input topic is the encoder state_  
 _Output topic is the motor speed(command)_  
 
