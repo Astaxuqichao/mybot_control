@@ -1,7 +1,13 @@
 # mybot_control
 
-There are ros packages of mybot_control, include mecanumbot drive and hardware example.
+There are ros_packages of mybot_control, include the following:
+1. mecanumbot controller
+2. diffbot hardware driver
+3. mecanumbot hardware driver
+4. launch file
+5. odom test scripts
 
+**Those packages depend on ros-control and ros-controllers.**
 
 ## Schema
 
@@ -16,11 +22,11 @@ There are ros packages of mybot_control, include mecanumbot drive and hardware e
 └── mybot_test         #test scripts
 ```
 
-## hardware 
+## Input & Output 
 
 _I use rosserial to contect the hardware and embedded, so I just need to manager input and output topic_  
-_input topic is the encoder state_  
-_output topic is the motor speed(command)_  
+_Input topic is the encoder state_  
+_Output topic is the motor speed(command)_  
 
 You can edit it to your own rules in `mybot_hw`
 
