@@ -8,7 +8,7 @@ There are ros_packages of mybot_control, include the following:
 5. launch file
 6. odom test scripts
 
-**Those packages depend on ros-control and ros-controllers.**
+**Those packages depend on `ros-control` and `ros-controllers`.**
 
 ## Schema
 
