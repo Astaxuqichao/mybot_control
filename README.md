@@ -41,7 +41,7 @@ wheel_cmd_velocity | std_msgs/Float32MultiArray | rad/s
 
 
 ## USAGE
-- make
+- compile
 ```
 #cd your_ws/src
 #git clone this repository to your own workspace
